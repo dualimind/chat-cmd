@@ -3,7 +3,7 @@ from openai import OpenAI
 from .types import Message
 
 API_KEY = getenv("OPENAI_API_KEY")
-client = OpenAI(api_key=API_KEY)
+openai_client = OpenAI(api_key=API_KEY)
 
 messages: list[Message] = [
     {
