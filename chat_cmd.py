@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from chats import http_chat, openai_chat, agent_chat
+from chats import http_chat  # , openai_chat, agent_chat
 
 load_dotenv()
 
@@ -14,9 +14,11 @@ def main() -> None:
     if chat_mode == "http":
         http_chat()
     elif chat_mode == "openai":
-        openai_chat()
+        pass
+        # openai_chat()
     elif chat_mode == "agent":
-        agent_chat()
+        pass
+        # agent_chat()
     else:
         print("Modo de chat no válido.")
 
