@@ -15,21 +15,17 @@ messages: list[Message] = [
 
 def send_message(prompt: str) -> str:
     """Función para enviar un mensaje al modelo de OpenAI y recibir una respuesta."""
-    # TODO: Implementar la lógica para enviar el mensaje a la API de OpenAI, haciendo uso
-    # de la librería cliente de OpenAI, y recibir la respuesta. Deberás hacer uso del método
-    # correcto del cliente y manejar la respuesta para extraer el texto generado por el modelo.
+    messages.append({"role": "user", "content": prompt})
+    response = openai_client.chat.completions.create(
+        model="gpt-4.1",
+        max_completion_tokens=100,
+        temperature=1,
+        messages=messages,  # type: ignore
+    )
+    message_content = response.choices[0].message.content or ""
+    messages.append({"role": "assistant", "content": message_content})
 
-    # Para ello, responde primero estas preguntas:
-    # 1. ¿Qué método del cliente de OpenAI necesitas utilizar?
-    # 2. ¿Qué parámetros son necesarios para la petición?
-    # 3. ¿Cómo se estructura la respuesta del modelo?
-
-    # Además de realizar la petición, deberás almacenar tanto el mensaje de entrada como
-    # la respuesta dada por el modelo en la variable `messages`, para mantener
-    # el contexto de la conversación en cada interacción (piensa que el modelo necesita
-    # ver el historial de mensajes en cada petición para generar respuestas coherentes).
-
-    raise NotImplementedError()
+    return message_content
 
 
 def openai_chat() -> None:

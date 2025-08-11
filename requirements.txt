@@ -3,3 +3,4 @@ openai==1.98.0
 langchain==0.3.27
 langchain-openai==0.3.28
 python-dotenv==1.1.1
+langgraph-anthropic==anthropic-0.62.0
