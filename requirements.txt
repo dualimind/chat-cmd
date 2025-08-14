@@ -4,3 +4,4 @@ langchain==0.3.27
 langchain-openai==0.3.28
 python-dotenv==1.1.1
 langgraph-anthropic==anthropic-0.62.0
+beautifulsoup4==4.13.4 
